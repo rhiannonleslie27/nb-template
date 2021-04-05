@@ -1,21 +1,70 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
+import MainScreen from './Screens/MainScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import { Container, Content, View, Text } from 'native-base';
+import { StyleSheet } from 'react-native';
+import Swiper from 'react-native-swiper';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+  screenDefault: {
+    flex: 1, 
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#a0c033'
   },
+  screenText: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#fff',
+  }
 });
+
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+    };
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      ...Ionicons.font,
+    });
+    this.setState({ isReady: true });
+  }
+
+  render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+
+    return (
+    <Container>
+      <Content>
+        <Swiper>
+
+          <View style={styles.screenDefault}>
+            <Text style={styles.screenText}>Main Screen</Text>
+          </View>
+
+          <View style={styles.screenDefault}>
+            <Text style={styles.screenText}>Screen Two</Text>
+          </View>
+
+          <View style={styles.screenDefault}>
+            <Text style={styles.screenText}>Third Screen</Text>
+          </View>
+
+        </Swiper>
+      </Content>
+    </Container>
+    );
+  }
+}
