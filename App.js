@@ -3,6 +3,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import MainScreen from './Screens/MainScreen';
+import CameraScreen from './Screens/CameraScreen';
 
 import { Container, Content, View, Text } from 'native-base';
 import { StyleSheet } from 'react-native';
@@ -54,6 +55,8 @@ export default class App extends React.Component {
             <Text style={styles.screenText}>Main Screen</Text>
           </View>
 
+          <CameraScreen />
+          
           <View style={styles.screenDefault}>
             <Text style={styles.screenText}>Screen Two</Text>
           </View>

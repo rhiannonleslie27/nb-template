@@ -18,13 +18,13 @@ const CameraScreen = () => {
         return <Text>No Access to Camera</Text>;
     }
 
-    return (
-        <View style={StyleSheet.container}>
-            <Camera style={StyleSheet.camera} type={type}>
+  return (
+  <View style={styles.container}>
+      <Camera style={styles.camera} type={type}>
 
-            </Camera>
-        </View>
-    );
+      </Camera>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-})
+});
 
-export default CameraScreen
+export default CameraScreen;
