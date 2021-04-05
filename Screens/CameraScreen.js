@@ -10,6 +10,13 @@ const CameraScreen = () => {
     const [type, setType] = useState(Camera.Constants.Type.back);
 
 
+    useEffect (() => {
+        (async () => {
+            const { status  } = await Camera.requestPermissionsAsync();
+            setPermission(status === 'granted');
+        }) ();
+    }, []);
+
     if(hasPermission === null) {
         return <View />;
     }
