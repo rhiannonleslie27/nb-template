@@ -49,7 +49,7 @@ export default class App extends React.Component {
     return (
     <Container>
       <Content>
-        <Swiper>
+        <Swiper loop={false} showsPagination={false}>
 
           <View style={styles.screenDefault}>
             <Text style={styles.screenText}>Main Screen</Text>
