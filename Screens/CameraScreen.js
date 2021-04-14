@@ -31,9 +31,19 @@ const CameraScreen = () => {
   return (
   <View style={styles.container}>
       <Camera style={styles.camera} type={type}>
-          <Header style={{backgroundColor: 'transparent'}}>
+          <Header searchBar rounded style={{backgroundColor: 'transparent'}}>
           <View>
-              <Icon type="Ionicons" name="ios-camera-reverse" style={{ color: 'white', fontSize: 25}} />
+              <Icon type="AntDesign" name="instagram" style={{ color: 'white', fontSize: 30}} />
+              <Icon onPress={
+                  () => {
+                      if(type === Camera.Constants.Type.back) {
+                          setType(Camera.Constants.Type.front);
+                      } else {
+                          setType(Camera.Constants.Type.back);
+                      }
+                      
+                  }
+              } type="Ionicons" name="ios-camera-reverse" style={{ color: 'white', fontSize: 30}} />
           </View>
           </Header>
 
