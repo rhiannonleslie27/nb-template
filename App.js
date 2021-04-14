@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import MainScreen from './Screens/MainScreen';
 import CameraScreen from './Screens/CameraScreen';
 
-import { Container, Content, View, Text } from 'native-base';
+import { Container, Content, View, Text, Root } from 'native-base';
 import { StyleSheet } from 'react-native';
 import Swiper from 'react-native-swiper';
 
@@ -47,7 +47,8 @@ export default class App extends React.Component {
     }
 
     return (
-    <Container>
+      <Root>
+        <Container>
       <Content>
         <Swiper loop={false} showsPagination={false}>
 
@@ -68,6 +69,8 @@ export default class App extends React.Component {
         </Swiper>
       </Content>
     </Container>
+    </Root>
+
     );
   }
 }
